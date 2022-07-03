@@ -5,12 +5,12 @@
 		<PackageTags>settings;builder;memory</PackageTags>
 		<Title>Ridavei.Settings.InMemory</Title>
 		<AssemblyVersion>1.0</AssemblyVersion>
-		<Version>1.0.0.1</Version>
-		<FileVersion>1.0.0.1</FileVersion>
+		<Version>1.0.0.2</Version>
+		<FileVersion>1.0.0.2</FileVersion>
 		<Authors>Mateusz Fiedorowicz</Authors>
 		<Copyright>Mateusz Fiedorowicz</Copyright>
 		<Description>Builder extension to store settings keys and values in a Dictionary.</Description>
-		<RepositoryUrl>https://github.com/MatFied/Ridavei.Settings.git</RepositoryUrl>
+		<RepositoryUrl>https://github.com/MatFied/Ridavei.Settings.InMemory.git</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<GenerateDocumentationFile>True</GenerateDocumentationFile>
