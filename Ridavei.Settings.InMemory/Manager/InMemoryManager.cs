@@ -19,7 +19,7 @@ namespace Ridavei.Settings.InMemory.Manager
         /// </summary>
         /// <param name="dictionaryName">Name of the dictionary</param>
         /// <returns>Settings</returns>
-        protected override ISettings GetSettingsObject(string dictionaryName)
+        protected override ASettings GetSettingsObject(string dictionaryName)
         {
             return new InMemorySettings(dictionaryName);
         }

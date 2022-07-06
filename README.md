@@ -15,14 +15,16 @@ namespace TestProgram
     {
         public static void Main(string[] args)
         {
-            ISettings settings = SettingsBuilder
-                .CreateBuilder()
-                .UseInMemoryManager()
-                .GetSettings("DictionaryName");
+            using (SettingsBuilder settingsBuilder = SettingsBuilder.CreateBuilder())
+            {
+                ISettings settings = settingsBuilder
+                    .UseInMemoryManager()
+                    .GetSettings("DictionaryName");
 
-            //You can use settings.Get("ExampleKey", "DefaultValue") if you want to retrieve the default value if the key doesn't exists.
-            string value = settings.Get("ExampleKey");
-            settings.Set("AnotherKey", "NewValue");
+                //You can use settings.Get("ExampleKey", "DefaultValue") if you want to retrieve the default value if the key doesn't exists.
+                string value = settings.Get("ExampleKey");
+                settings.Set("AnotherKey", "NewValue");
+            }
         }
     }
 }
