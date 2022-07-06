@@ -5,8 +5,8 @@
 		<PackageTags>settings;builder;memory</PackageTags>
 		<Title>Ridavei.Settings.InMemory</Title>
 		<AssemblyVersion>1.0</AssemblyVersion>
-		<Version>1.0.0.2</Version>
-		<FileVersion>1.0.0.2</FileVersion>
+		<Version>1.0.1.0</Version>
+		<FileVersion>1.0.1.0</FileVersion>
 		<Authors>Mateusz Fiedorowicz</Authors>
 		<Copyright>Mateusz Fiedorowicz</Copyright>
 		<Description>Builder extension to store settings keys and values in a Dictionary.</Description>
@@ -33,11 +33,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Ridavei.Settings" Version="1.0.0" />
+		<PackageReference Include="Ridavei.Settings" Version="1.0.1.1" />
 	</ItemGroup>
 	
 	<ItemGroup>
-		<None Include="..\README.md" Pack="true" PackagePath="\"/>
+		<None Include="..\README.md" Pack="true" PackagePath="\" />
 	</ItemGroup>
 
 </Project>
