@@ -1,12 +1,15 @@
 # Ridavei.Settings.InMemory
 
-Builder extension to store settings keys and values in a Dictionary<string, string>.
+### Latest release
+[![NuGet Badge Ridavei.Settings.InMemory](https://buildstats.info/nuget/Ridavei.Settings.InMemory)](https://www.nuget.org/packages/Ridavei.Settings.InMemory)
+
+Builder extension to store settings keys and values in a [Dictionary<string, string>](https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.dictionary-2).
 
 ## Examples of use
 
 ```csharp
 using Ridavei.Settings;
-using Ridavei.Settings.Interface;
+using Ridavei.Settings.Base;
 using Ridavei.Settings.InMemory;
 
 namespace TestProgram
@@ -15,12 +18,12 @@ namespace TestProgram
     {
         public static void Main(string[] args)
         {
-            using (SettingsBuilder settingsBuilder = SettingsBuilder.CreateBuilder())
+            SettingsBuilder settingsBuilder = SettingsBuilder
+                .CreateBuilder()
+                .UseInMemoryManager();
+            using (ASettings settings = settingsBuilder.GetSettings("DictionaryName")
+                /*you can use the GetOrCreateSettings method if you are not sure if the settings dictionary exists*/)
             {
-                ISettings settings = settingsBuilder
-                    .UseInMemoryManager()
-                    .GetSettings("DictionaryName");
-
                 //You can use settings.Get("ExampleKey", "DefaultValue") if you want to retrieve the default value if the key doesn't exists.
                 string value = settings.Get("ExampleKey");
                 settings.Set("AnotherKey", "NewValue");

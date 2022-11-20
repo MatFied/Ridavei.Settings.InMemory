@@ -1,6 +1,7 @@
-﻿using Ridavei.Settings.Base;
+﻿using System.Collections.Generic;
+
+using Ridavei.Settings.Base;
 using Ridavei.Settings.InMemory.Settings;
-using Ridavei.Settings.Interface;
 
 namespace Ridavei.Settings.InMemory.Manager
 {
@@ -9,19 +10,25 @@ namespace Ridavei.Settings.InMemory.Manager
     /// </summary>
     internal class InMemoryManager : AManager
     {
+        private readonly Dictionary<string, ASettings> _settings = new Dictionary<string, ASettings>();
+
         /// <summary>
         /// The default constructor for <see cref="InMemoryManager"/> class.
         /// </summary>
         public InMemoryManager() : base() { }
 
-        /// <summary>
-        /// Retrieves the <see cref="ISettings"/> object for the specifed dictionary name.
-        /// </summary>
-        /// <param name="dictionaryName">Name of the dictionary</param>
-        /// <returns>Settings</returns>
-        protected override ASettings GetSettingsObject(string dictionaryName)
+        /// <inheritdoc/>
+        protected override ASettings CreateSettingsObject(string dictionaryName)
         {
-            return new InMemorySettings(dictionaryName);
+            var res = new InMemorySettings(dictionaryName);
+            _settings.Add(dictionaryName, res);
+            return res;
+        }
+
+        /// <inheritdoc/>
+        protected override bool TryGetSettingsObject(string dictionaryName, out ASettings settings)
+        {
+            return _settings.TryGetValue(dictionaryName, out settings);
         }
     }
 }
