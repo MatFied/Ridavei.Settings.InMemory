@@ -1,6 +1,4 @@
-﻿using System;
-
-using Ridavei.Settings.Exceptions;
+﻿using Ridavei.Settings.Exceptions;
 
 using NUnit.Framework;
 using Shouldly;
