@@ -9,8 +9,8 @@ Builder extension to store settings keys and values in a [Dictionary<string, str
 
 ```csharp
 using Ridavei.Settings;
-using Ridavei.Settings.Base;
 using Ridavei.Settings.InMemory;
+using Ridavei.Settings.Interfaces;
 
 namespace TestProgram
 {
@@ -21,7 +21,7 @@ namespace TestProgram
             SettingsBuilder settingsBuilder = SettingsBuilder
                 .CreateBuilder()
                 .UseInMemoryManager();
-            using (ASettings settings = settingsBuilder.GetSettings("DictionaryName")
+            using (ISettings settings = settingsBuilder.GetSettings("DictionaryName")
                 /*you can use the GetOrCreateSettings method if you are not sure if the settings dictionary exists*/)
             {
                 //You can use settings.Get("ExampleKey", "DefaultValue") if you want to retrieve the default value if the key doesn't exists.
